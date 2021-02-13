@@ -46,9 +46,7 @@ async def hmm(event):
 Welcome To {Config.ACCOUNT_GEN_NAME} Account Generator Bot
 
 To Know About commands type:
-/cmds
-
-Bot Made With ❤️ By @DevseXpo**
+/cmd
 """ 
     await event.reply(user_text) 
     
@@ -65,7 +63,7 @@ My Commands Are As Follows:
 
 /start - To Restart Bot..!
 /cmds - To Get Help Menu
-/generate - To Generate Zee5 Accounts
+/generate - To Generate account Accounts
 /about - To Get Your Current Info
 
 Share And Support Us...❤️**
@@ -79,11 +77,11 @@ async def hmm(event):
     	if starky is False:
         	await event.reply("**I am Sorry To Say That, To Access Me You Have To Be The Member Of Our Channel To Use This Bot..!**", buttons=[[custom.Button.url("Join Channel", Config.CHANNEL_URL)]])
         	return
-    hmmw = await event.reply("**Generating Account...Stay Tuned.**")
+    hmmw = await event.reply("**انتظر بعد 24 ساعه.**")
     if warner.is_user_in_db(int(event.sender_id)):
         hmm = warner.get_user_info(int(event.sender_id))
         if warner.is_user_in_db(int(event.sender_id)) >= Config.GEN_LIMIT_PERDAY:
-            await hmmw.edit(f"**Your Daily Limit is exhausted, Kindly Contact the admins to increase ur limit\n\nBy The Way Daily Limit is {Config.GEN_LIMIT_PERDAY} accounts per day**", buttons=[[custom.Button.url("Join Channel", Config.CHANNEL_URL)]])
+            await hmmw.edit(f"**Your Daily Limit is exhausted,By The Way Daily Limit is {Config.GEN_LIMIT_PERDAY} accounts per day**", buttons=[[custom.Button.url("Join Channel", Config.CHANNEL_URL)]])
             return
         warner.update_user_usage(int(event.sender_id), int(1))
     else:
